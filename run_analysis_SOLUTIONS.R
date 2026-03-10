@@ -179,7 +179,17 @@ penguins_clean %>%
         .groups = "drop"
     ) %>%
     print()
+# === HIGHLIGHTED SECTION: One-way ANOVA and Tukey Post-hoc Test ===
+# Test if body_mass_g differs between species
+anova_result <- aov(body_mass_g ~ species, data = penguins_clean)
+cat("\n--- One-way ANOVA: body_mass_g by species ---\n")
+print(summary(anova_result))
 
+# Tukey Honest Significant Difference test
+tukey_result <- TukeyHSD(anova_result)
+cat("\n--- Tukey HSD post-hoc test results ---\n")
+print(tukey_result)
+# === END HIGHLIGHTED SECTION ===
 # 8. Advanced Visualisation Techniques
 # -------------------------------------------------------------------------
 
@@ -238,3 +248,4 @@ save_penguin_plot_png(final_grid, "penguin_poster.png", size_option = "poster")
 # Save individual plots if needed
 save_penguin_plot_png(regression_plot, "regression_plot_poster.png", size_option = "single_poster")
 save_penguin_plot_svg(final_grid, "penguin_poster.svg", size_option = "poster")
+
