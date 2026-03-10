@@ -28,7 +28,7 @@ The dataset includes the following morphological measurements:
 | `flipper_length_mm` | [172-231] |
 | `body_mass_g` | [2700-6300] |
 
-## Rain rain rain 
+## What the Analysis Does 
 
 The R script `run_analysis_SOLUTIONS.R` performs the following steps:
 
